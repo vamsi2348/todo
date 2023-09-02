@@ -1,0 +1,13 @@
+<h1 style="text-align: center; color:cornflowerblue">Todo Application</h1>
+<input type="text" placeholder="Add TODO" (input)="todoEntered($event)" [value]="todo">
+<button (click)="addTodo($event)">Add Todo</button>
+<h2>Output:{{todo}}</h2>
+<h4>List of Todos</h4>
+<div *ngFor="let todo of todoList; index as i">
+  <!-- {{todo.todoName}} -->
+  <input [ngClass]="{'done':todo.isDone}" [readOnly]="todo.isReadOnly" (input)="updateTask($event)" type="text" value="{{todo.todoName}}">
+  <button *ngIf="!todo.isDone" (click)="editTodo(i)">Edit</button>
+  <button *ngIf="!todo.isReadOnly" (click)="updateTodo(i)">Update</button>
+  <button *ngIf="!todo.isDone" (click)="todoDone(i)">Done</button>
+  <button (click)="deleteTodo(i)">Delete</button>
+</div>
