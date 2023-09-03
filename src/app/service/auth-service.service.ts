@@ -10,13 +10,15 @@ import { Router } from '@angular/router';
 })
 export class AuthServiceService {
 
+  isLoggedin:boolean=false;
   constructor(private fireAuth:AngularFireAuth, private router:Router ) { }
 
   //login method
   login(email:string,password:string ){
     this.fireAuth.signInWithEmailAndPassword(email,password).then( () => {
       localStorage.setItem('token','true');
-      this.router.navigate(['dashboard'])
+      this.router.navigate(['dashboard']);
+      this.isLoggedin= true;
     },err => {
       alert(err.message);
       this.router.navigate(['login'])
@@ -30,7 +32,7 @@ export class AuthServiceService {
       this.router.navigate(['login'])
     },err=>{
       alert(err.message);
-      this.router.navigate(['register'])
+      this.router.navigate(['register']) 
 
     })
   }
@@ -39,11 +41,21 @@ export class AuthServiceService {
   //signout
   logout(){
     this.fireAuth.signOut().then(() => {
+      this.isLoggedin= false;
       alert("Logout Success");
       localStorage.removeItem("token");
       this.router.navigate(['login']);
     },err => {
       alert(err.message)
     })
+  }
+
+  //gaurds
+  isAuthenticated():boolean{
+    if(this.isLoggedin){
+      return true;
+    }else{
+      return false;
+    }
   }
 }

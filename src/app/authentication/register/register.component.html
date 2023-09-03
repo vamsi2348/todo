@@ -1,1 +1,44 @@
-<p>register works!</p>
+<div class="container-fluid">
+    <div class="row mt-5">
+        <div class="col">
+            <div class="col-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <form [formGroup]="registerForm" (ngSubmit)="registerAccount()">
+                            <div class="mb-3">
+                                <h4 class="text-dark text-muted">Register for your Account!</h4>
+                            </div>
+                            
+                                <label for="email">Email:</label>
+                            <div class="mb-3">
+                                <input type="text" id="email" name="email" formControlName="email">
+                            </div>                            
+                                <label for="email">Name:</label>
+                            <div class="mb-3">
+                                <input type="text" id="name" name="name" formControlName="name">
+                            </div>
+                            <div class="mb-3">
+                                <h6>Create Password</h6>
+                            </div>
+                            
+                                <label for="password">Password:</label>
+                            <div class="mb-3">
+                                <input type="password" id="password" name="password" formControlName="password">
+                            </div>
+                            <button class="btn btn-info" type="submit" [disabled]="registerForm.invalid">Submit</button>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a style="text-decoration: none;" [routerLink]="'../login'">Have an account? <span
+                                            class="text-success">Login</span></a>
+                                </div>
+                                <!-- <div class="col-md-6">
+                                    <a class="text-dark" style="text-decoration: none;" href="">Forgot password</a>
+                                </div> -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

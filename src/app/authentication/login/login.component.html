@@ -1,25 +1,28 @@
-<div class="container-fluid">
-     <div class="row mt-5">
+<div class="container-fluid" >
+    <div class="row mt-5">
         <div class="col">
             <div class="col-4">
-                <div class="card shadow" >
-                    <div class="card-body">                        
+                <div class="card shadow">
+                    <div class="card-body">
                         <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
                             <div class="mb-3">
                                 <h4 class="text-dark text-muted">Login</h4>
                             </div>
+
+                            <label for="email">Email:</label>
                             <div class="mb-3">
-                                <label for="email">Email:</label>
                                 <input type="text" id="email" name="email" formControlName="email">
                             </div>
+
+                            <label for="password">Password:</label>
                             <div class="mb-3">
-                                <label for="password">Password:</label>
-                                <input type="password" id="password" name = "password" formControlName="password">
-                            </div>                    
+                                <input type="password" id="password" name="password" formControlName="password">
+                            </div>
                             <button class="btn btn-info" type="submit" [disabled]="loginForm.invalid">Submit</button>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <a style="text-decoration: none;" href="">Need Account? <span class="text-danger">Register</span></a>
+                                    <a style="text-decoration: none;" [routerLink]="['/register']">Need Account? <span
+                                            class="text-danger">Register</span></a>
                                 </div>
                                 <div class="col-md-6">
                                     <a class="text-dark" style="text-decoration: none;" href="">Forgot password</a>
@@ -30,5 +33,5 @@
                 </div>
             </div>
         </div>
-     </div>
+    </div>
 </div>

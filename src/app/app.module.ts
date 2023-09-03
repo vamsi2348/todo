@@ -17,6 +17,11 @@ import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
 import {environment} from '../environment/environment';
 import {AngularFireModule}  from '@angular/fire/compat';
 
+//database
+// import { getDatabase } from '@angula'
+//Routing module
+import { RouterModule } from '@angular/router';
+
 import { initializeApp } from 'firebase/app';
 import { TodoListComponent } from './todo-list/todo-list.component';
 
